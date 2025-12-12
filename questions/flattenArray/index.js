@@ -11,6 +11,7 @@
  * 
  */
 
+console.log("Flatten Array")
  const flatten = (nums) => {
   const result = []
 
