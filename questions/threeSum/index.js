@@ -11,8 +11,38 @@
  * threeSum([0, 0, 0, 0]) = [[0, 0, 0]]
  */
 
+console.log("Three Number Sum");
 function threeSum(nums) {
-  
+  //SORTING AND POINTER SOLUTION
+  nums.sort((a, b) => a - b);
+  const results = [];
+
+  for (i = 0; i < nums.length - 2; ++i) {
+    if (nums[i] === nums[i - 1]) {
+      continue;
+    }
+    let l = i + 1;
+    let r = nums.length - 1;
+
+    while (l < r) {
+      const sum = nums[i] + nums[l] + nums[r];
+
+      if (sum > 0) {
+        r--;
+      }
+      if (sum < 0) {
+        l++;
+      }
+      if (sum === 0) {
+        results.push([nums[i], nums[l], nums[r]]);
+        l++;
+        while (nums[l] === nums[l - 1] && l<r) {
+          l++;
+        }
+      }
+    }
+  }
+  return results
 }
 
 //DO NOT EDIT BELOW THIS LINE
