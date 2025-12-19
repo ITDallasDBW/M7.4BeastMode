@@ -10,9 +10,20 @@
  * moveZeroes([3, 4, 0, 2, 0]) -> [3, 4, 2, 0, 0]
  * 
  */
-
+console.log("4.14 Move Zeroes")
  const moveZeroes = (nums) => {
-
+    let l=0;
+    let r=0;
+    while (r<nums.length) {
+        if (nums[r] !==0) {
+            let temp=nums[r]
+            nums[r] = nums[l]
+            nums[l] = temp
+            l+=1
+        }
+        r+=1
+    }
+    return nums
 }
 
 module.exports = moveZeroes;
